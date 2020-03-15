@@ -1,0 +1,385 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B6CC4DC0241C544700D47718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DBF241C544700D47718 /* AppDelegate.swift */; };
+		B6CC4DC2241C544700D47718 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DC1241C544700D47718 /* SceneDelegate.swift */; };
+		B6CC4DC4241C544700D47718 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DC3241C544700D47718 /* MainTableViewController.swift */; };
+		B6CC4DC7241C544700D47718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CC4DC5241C544700D47718 /* Main.storyboard */; };
+		B6CC4DC9241C544900D47718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6CC4DC8241C544900D47718 /* Assets.xcassets */; };
+		B6CC4DCC241C544900D47718 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CC4DCA241C544900D47718 /* LaunchScreen.storyboard */; };
+		B6CC4DD4241C690200D47718 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DD3241C690200D47718 /* SettingTableViewController.swift */; };
+		B6CC4DD8241C7A3700D47718 /* Restroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DD7241C7A3700D47718 /* Restroom.swift */; };
+		B6CC4DDB241C7C4B00D47718 /* RestroomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DDA241C7C4B00D47718 /* RestroomController.swift */; };
+		B6CC4DDD241D0D4300D47718 /* FavoriteRestroomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DDC241D0D4300D47718 /* FavoriteRestroomTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B6CC4DBC241C544700D47718 /* Toilet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toilet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6CC4DBF241C544700D47718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B6CC4DC1241C544700D47718 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B6CC4DC3241C544700D47718 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		B6CC4DC6241C544700D47718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B6CC4DC8241C544900D47718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B6CC4DCB241C544900D47718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B6CC4DCD241C544900D47718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6CC4DD3241C690200D47718 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		B6CC4DD7241C7A3700D47718 /* Restroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restroom.swift; sourceTree = "<group>"; };
+		B6CC4DDA241C7C4B00D47718 /* RestroomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestroomController.swift; sourceTree = "<group>"; };
+		B6CC4DDC241D0D4300D47718 /* FavoriteRestroomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestroomTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B6CC4DB9241C544700D47718 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B6CC4DB3241C544700D47718 = {
+			isa = PBXGroup;
+			children = (
+				B6CC4DBE241C544700D47718 /* Toilet */,
+				B6CC4DBD241C544700D47718 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B6CC4DBD241C544700D47718 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC4DBC241C544700D47718 /* Toilet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6CC4DBE241C544700D47718 /* Toilet */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC4DD9241C7C3600D47718 /* Model */,
+				B6CC4DD6241C6AB200D47718 /* Resources */,
+				B6CC4DD5241C6AA400D47718 /* View Controllers */,
+				B6CC4DC5241C544700D47718 /* Main.storyboard */,
+				B6CC4DCD241C544900D47718 /* Info.plist */,
+			);
+			path = Toilet;
+			sourceTree = "<group>";
+		};
+		B6CC4DD5241C6AA400D47718 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC4DC3241C544700D47718 /* MainTableViewController.swift */,
+				B6CC4DD3241C690200D47718 /* SettingTableViewController.swift */,
+				B6CC4DDC241D0D4300D47718 /* FavoriteRestroomTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B6CC4DD6241C6AB200D47718 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC4DBF241C544700D47718 /* AppDelegate.swift */,
+				B6CC4DC1241C544700D47718 /* SceneDelegate.swift */,
+				B6CC4DC8241C544900D47718 /* Assets.xcassets */,
+				B6CC4DCA241C544900D47718 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B6CC4DD9241C7C3600D47718 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC4DD7241C7A3700D47718 /* Restroom.swift */,
+				B6CC4DDA241C7C4B00D47718 /* RestroomController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B6CC4DBB241C544700D47718 /* Toilet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6CC4DD0241C544900D47718 /* Build configuration list for PBXNativeTarget "Toilet" */;
+			buildPhases = (
+				B6CC4DB8241C544700D47718 /* Sources */,
+				B6CC4DB9241C544700D47718 /* Frameworks */,
+				B6CC4DBA241C544700D47718 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Toilet;
+			productName = Toilet;
+			productReference = B6CC4DBC241C544700D47718 /* Toilet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B6CC4DB4241C544700D47718 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Nick Nguyen";
+				TargetAttributes = {
+					B6CC4DBB241C544700D47718 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B6CC4DB7241C544700D47718 /* Build configuration list for PBXProject "Toilet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B6CC4DB3241C544700D47718;
+			productRefGroup = B6CC4DBD241C544700D47718 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6CC4DBB241C544700D47718 /* Toilet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B6CC4DBA241C544700D47718 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6CC4DCC241C544900D47718 /* LaunchScreen.storyboard in Resources */,
+				B6CC4DC9241C544900D47718 /* Assets.xcassets in Resources */,
+				B6CC4DC7241C544700D47718 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B6CC4DB8241C544700D47718 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6CC4DD8241C7A3700D47718 /* Restroom.swift in Sources */,
+				B6CC4DC4241C544700D47718 /* MainTableViewController.swift in Sources */,
+				B6CC4DDB241C7C4B00D47718 /* RestroomController.swift in Sources */,
+				B6CC4DDD241D0D4300D47718 /* FavoriteRestroomTableViewController.swift in Sources */,
+				B6CC4DC0241C544700D47718 /* AppDelegate.swift in Sources */,
+				B6CC4DC2241C544700D47718 /* SceneDelegate.swift in Sources */,
+				B6CC4DD4241C690200D47718 /* SettingTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B6CC4DC5241C544700D47718 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6CC4DC6241C544700D47718 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B6CC4DCA241C544900D47718 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6CC4DCB241C544900D47718 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B6CC4DCE241C544900D47718 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B6CC4DCF241C544900D47718 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B6CC4DD1241C544900D47718 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = Toilet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.Toilet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B6CC4DD2241C544900D47718 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = Toilet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.Toilet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B6CC4DB7241C544700D47718 /* Build configuration list for PBXProject "Toilet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6CC4DCE241C544900D47718 /* Debug */,
+				B6CC4DCF241C544900D47718 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6CC4DD0241C544900D47718 /* Build configuration list for PBXNativeTarget "Toilet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6CC4DD1241C544900D47718 /* Debug */,
+				B6CC4DD2241C544900D47718 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B6CC4DB4241C544700D47718 /* Project object */;
+}
