@@ -15,6 +15,20 @@ import CoreLocation
 // Show blue dot current user
 // Show detail annotation when tap on table view
 // Use UITabBarControllerDelegate
+extension UITableViewController {
+    func showAlert() {
+          let ac = UIAlertController(title: "Added restroom to favorites",
+                                     message: nil,
+                                     preferredStyle: .alert)
+          
+          ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
+              
+          present(ac, animated: true, completion: nil)
+          
+      }
+
+}
+
 
 protocol MainTableViewControllerDelegate: AnyObject {
     func didGetNewRestroom(restroom: Restroom)
@@ -23,7 +37,7 @@ protocol MainTableViewControllerDelegate: AnyObject {
 
 class MainTableViewController: UITableViewController , UITabBarControllerDelegate {
     
-    
+       let reuseID = "ToiletCell"
     lazy var searchBar : UISearchBar = {
         let search = UISearchBar()
         search.placeholder = "Search for location"
@@ -32,9 +46,9 @@ class MainTableViewController: UITableViewController , UITabBarControllerDelegat
     }()
     
     let restroomController = RestroomController.shared
+    var isSearch = false
     
-    
-    private let reuseID = "ToiletCell"
+   
     var locationManager = CLLocationManager()
     var location : CLLocationCoordinate2D?
     
@@ -63,21 +77,25 @@ class MainTableViewController: UITableViewController , UITabBarControllerDelegat
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
           
-            restroomController.fetchRestRoom(lat: location?.latitude ?? 40.730610 , long: location?.longitude ??  -73.935242) { (restroom, _) in
+            restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 , long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
                 DispatchQueue.main.async {
-                    self.restroomController.restrooms.forEach { (restroom) in
-                        
-                        let annotation = MKPointAnnotation()
-                        annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
-                        annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
-                        annotation.title = restroom.name
-                        annotation.subtitle = "View directions"
-                        self.mapView.addAnnotation(annotation)
-                        self.tableView.reloadData()
-                    }
-                    
-                    self.locationManager.startUpdatingLocation()
-                }}
+                  
+                        self.restroomController.restrooms.forEach { (restroom) in
+                                       
+                                       let annotation = MKPointAnnotation()
+                                       annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
+                                       annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
+                                       annotation.title = restroom.name
+                                       annotation.subtitle = "View directions"
+                                       self.mapView.addAnnotation(annotation)
+                                       self.tableView.reloadData()
+                                   }
+                                   
+                                   self.locationManager.startUpdatingLocation()
+                 
+           
+                }
+            }
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
@@ -110,7 +128,24 @@ class MainTableViewController: UITableViewController , UITabBarControllerDelegat
                 // Do map stuff
 
                    locationManager.startUpdatingLocation()
-             
+             restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 , long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
+                        DispatchQueue.main.async {
+                          
+                                self.restroomController.restrooms.forEach { (restroom) in
+                                               
+                                               let annotation = MKPointAnnotation()
+                                               annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
+                                               annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
+                                               annotation.title = restroom.name
+                                               annotation.subtitle = "View directions"
+                                               self.mapView.addAnnotation(annotation)
+                                               self.tableView.reloadData()
+                                           }
+                                           
+                                           self.locationManager.startUpdatingLocation()
+                         
+                   
+                        }}
                 locationManager.requestWhenInUseAuthorization()
                 
             break
@@ -125,7 +160,25 @@ class MainTableViewController: UITableViewController , UITabBarControllerDelegat
                 // Show an alert letting them know what's up
             break
             case .authorizedAlways:
-            break
+                restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 , long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
+                           DispatchQueue.main.async {
+                             
+                                   self.restroomController.restrooms.forEach { (restroom) in
+                                                  
+                                                  let annotation = MKPointAnnotation()
+                                                  annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
+                                                  annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
+                                                  annotation.title = restroom.name
+                                                  annotation.subtitle = "View directions"
+                                                  self.mapView.addAnnotation(annotation)
+                                                  self.tableView.reloadData()
+                                              }
+                                              
+                                              self.locationManager.startUpdatingLocation()
+                            
+                      
+                           }}
+        
             default:
             break
         }
@@ -140,100 +193,6 @@ class MainTableViewController: UITableViewController , UITabBarControllerDelegat
         }
     }
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-
-//         if let vc = viewController as? FavoriteRestroomTableViewController {
-//            vc.delegate = self
-//            vc.restroomController = restroomController
-//            print("Hello World")
-//         }
-
-     }
-    
-    //MARK:- Table View Data Source
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     
-        return restroomController.restrooms.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
-        
-        let currentRestroom = restroomController.restrooms[indexPath.row]
-        
-        cell.textLabel?.text  = restroomController.restrooms[indexPath.row].name
-        
-        cell.detailTextLabel?.text = [currentRestroom.street ,
-                                      currentRestroom.city ,
-                                      currentRestroom.state ,
-                                      currentRestroom.country].joined(separator: ",")
-        
-        return cell
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let restroom = restroomController.restrooms[indexPath.row]
-        
-        
-        let startLocation = CLLocationCoordinate2D(latitude:  CLLocationDegrees(restroom.latitude),
-                                                   longitude: CLLocationDegrees(restroom.longitude))
-        
-        let region = MKCoordinateRegion(center: startLocation,
-                                        latitudinalMeters: 10000,
-                                        longitudinalMeters: 10000)
-        
-        mapView.setRegion(region, animated: true)
-
-     
-    }
-    
-  
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-         return  UISwipeActionsConfiguration(actions:
-              [makeArchiveContextualAction(forRowAt: indexPath)])
-             
-    }
-    
-    func makeArchiveContextualAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .normal, title: nil) { (action, _, completion) in
-            
-            let restroom = self.restroomController.restrooms[indexPath.row]
-        
-            self.restroomController.createRestroom(name: restroom.name,
-                                                   street: restroom.street,
-                                                   city: restroom.city,
-                                                   state: restroom.state,
-                                                   country: restroom.country,
-                                                   longitude: restroom.longitude,
-                                                   latitude: restroom.latitude)
-            
-            print(self.restroomController.favoriteRestrooms.count)
-            
-            self.showAlert()
-            completion(true)
-        }
-        action.image = UIImage(systemName: "heart")
-        action.backgroundColor = UIColor(red: 186/255, green: 216/255, blue: 198/255, alpha: 1)
-       return action
-    }
-    
-    private func showAlert() {
-        let ac = UIAlertController(title: "Added restroom to favorites",
-                                   message: nil,
-                                   preferredStyle: .alert)
-        
-        ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
-            
-        present(ac, animated: true, completion: nil)
-        
-    }
-
-  
 }
 
 extension MainTableViewController: MKMapViewDelegate {
@@ -280,7 +239,7 @@ extension MainTableViewController: CLLocationManagerDelegate {
       func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             let location = locations.first!
             let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-//             mapView.showsUserLocation = true
+             mapView.showsUserLocation = true
         
             mapView.setRegion(coordinateRegion, animated: true)
             locationManager.stopUpdatingLocation()
@@ -294,31 +253,49 @@ extension MainTableViewController: CLLocationManagerDelegate {
 }
 extension  MainTableViewController: UISearchBarDelegate {
       func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//          if searchText == "" {
-//            restroomController.searchedRestrooms.removeAll()
-//              tableView.reloadData()
-//          }
+
       }
  
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text else { return }
+        searchBar.endEditing(true)
+        isSearch = true
         
-        // If search bar empty show nothing
-        //          if searchTerm.isEmpty {
-        //              DispatchQueue.main.async {
-        ////                  self.restroomController.searchedRestrooms.removeAll()
-        //                  self.tableView.reloadData()
-        //              }
-        //          }
-        restroomController.searchRestroom(searchTerm: searchTerm) { (restroom, _) in
+        
+        self.restroomController.searchRestroom(searchTerm: searchTerm) { (restroom, _) in
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                
+                self.restroomController.searchedRestrooms.forEach { (restroom) in
+                    
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
+                    annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
+                    annotation.title = restroom.name
+                    annotation.subtitle = "View directions"
+                    self.mapView.addAnnotation(annotation)
+                    self.tableView.reloadData()
+                }
+                
+                
+                DispatchQueue.main.async {
+                    self.locationManager.startUpdatingLocation()
+                    self.tableView.reloadData()
+                }
+        
             }
+        }
+        
+        DispatchQueue.main.async {
             
+            self.tableView.reloadData()
         }
         
     }
     
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        tableView.reloadData()
+    }
     
       }
 

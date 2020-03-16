@@ -9,33 +9,29 @@
 import UIKit
 import MapKit
 
-class FavoriteRestroomTableViewController: UITableViewController , UITabBarControllerDelegate {
+class FavoriteRestroomTableViewController: UITableViewController  {
 
   
     private let reuseCell = "Hello"
-    
-    weak var delegate : UITabBarControllerDelegate?
     
     //MARK:- View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tabBarController?.delegate = self
-        self.tableView.reloadData()
         tableView.tableFooterView = UIView()
-        //
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//
+
             self.tableView.reloadData()
         
         let indexPath = IndexPath(row: RestroomController.shared.favoriteRestrooms.count - 1, section: 0)
         self.tableView.reloadRows(at: [indexPath], with: .fade)
     }
 
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +43,7 @@ class FavoriteRestroomTableViewController: UITableViewController , UITabBarContr
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseCell, for: indexPath)
+        
         let currentRestroom = RestroomController.shared.favoriteRestrooms[indexPath.row]
         
         cell.textLabel?.text = currentRestroom.name

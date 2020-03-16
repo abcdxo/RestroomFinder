@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B69F9058241EF47C004DC82E /* MainTableView + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9057241EF47C004DC82E /* MainTableView + DataSource.swift */; };
 		B6CC4DC0241C544700D47718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DBF241C544700D47718 /* AppDelegate.swift */; };
 		B6CC4DC2241C544700D47718 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DC1241C544700D47718 /* SceneDelegate.swift */; };
 		B6CC4DC4241C544700D47718 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DC3241C544700D47718 /* MainTableViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B69F9057241EF47C004DC82E /* MainTableView + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTableView + DataSource.swift"; sourceTree = "<group>"; };
 		B6CC4DBC241C544700D47718 /* Toilet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toilet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6CC4DBF241C544700D47718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6CC4DC1241C544700D47718 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				B6CC4DC3241C544700D47718 /* MainTableViewController.swift */,
 				B6CC4DD3241C690200D47718 /* SettingTableViewController.swift */,
 				B6CC4DDC241D0D4300D47718 /* FavoriteRestroomTableViewController.swift */,
+				B69F9057241EF47C004DC82E /* MainTableView + DataSource.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				B6CC4DD8241C7A3700D47718 /* Restroom.swift in Sources */,
 				B6CC4DC4241C544700D47718 /* MainTableViewController.swift in Sources */,
+				B69F9058241EF47C004DC82E /* MainTableView + DataSource.swift in Sources */,
 				B6CC4DDB241C7C4B00D47718 /* RestroomController.swift in Sources */,
 				B6CC4DDD241D0D4300D47718 /* FavoriteRestroomTableViewController.swift in Sources */,
 				B6CC4DC0241C544700D47718 /* AppDelegate.swift in Sources */,

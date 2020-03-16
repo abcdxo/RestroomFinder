@@ -14,22 +14,23 @@ class RestroomController {
     
     let jsonDecoder = JSONDecoder()
     static let shared = RestroomController()
-    
-    init() {
-        loadFromPersistentStore()
-    }
-
     var baseURL = URL(string: "https://www.refugerestrooms.org/api")!
     var restrooms = [Restroom]()
     var favoriteRestrooms = [Restroom]()
     var searchedRestrooms = [Restroom]()
     
+    init() {
+        loadFromPersistentStore()
+    }
+
+    
     func fetchRestRoom(lat:Double,long:Double, completion: @escaping ([Restroom]?,Error?) -> Void ) {
          baseURL.appendPathComponent("v1/restrooms/by_location")
         let urlComponents = NSURLComponents(url: baseURL, resolvingAgainstBaseURL: false)
         
-        urlComponents?.queryItems =
-            [
+      
+             urlComponents?.queryItems =
+                [
                 URLQueryItem(name: "page", value: "1"),
                 URLQueryItem(name: "per_page", value: "10"),
                 URLQueryItem(name: "offset", value: "0"),
@@ -37,8 +38,8 @@ class RestroomController {
                 URLQueryItem(name: "unisex", value: "false"),
                 URLQueryItem(name: "lat", value: String(lat)),
                 URLQueryItem(name: "lng", value: String(long))
-                
-        ]
+                ]
+        
         guard let restRoomURL = urlComponents?.url else { return }
         let request = URLRequest(url: restRoomURL)
         print(restRoomURL)

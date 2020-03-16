@@ -11,17 +11,32 @@ import MessageUI
 
 class SettingTableViewController: UITableViewController  {
     
+    
+    //MARK:- Properties
+    
+     private let mail = MFMailComposeViewController()
+    
+    
+    
+    
+    //MARK:- Methods:
     private func sendEmail() {
            if MFMailComposeViewController.canSendMail() {
-               let mail = MFMailComposeViewController()
+             
                mail.mailComposeDelegate = self
                mail.setToRecipients(["ptnguyen1901@gmail.com"])
                mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
 
                present(mail, animated: true)
            } else {
-             let ac = UIAlertController(title: "Error sending email", message: "Your device does not support email, please try again later.", preferredStyle: .alert)
-             ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+             let ac = UIAlertController(title: "Error sending email",
+                                        message: "Your device does not support email, please try again later.",
+                                        preferredStyle: .alert)
+            
+             ac.addAction(UIAlertAction(title: "Cancel",
+                                        style: .destructive,
+                                        handler: nil))
+            
              present(ac, animated: true)
            }
        }
@@ -32,15 +47,22 @@ class SettingTableViewController: UITableViewController  {
         let twitterUrl = URL(string: "twitter://user?screen_name=tonic4000")!
            let twitterUrlWeb = URL(string: "https://www.twitter.com/tonic4000")!
            if UIApplication.shared.canOpenURL(twitterUrl) {
-              UIApplication.shared.open(twitterUrl, options: [:],completionHandler: nil)
+              UIApplication.shared.open(twitterUrl,
+                                        options: [:],
+                                        completionHandler: nil)
            } else {
-              UIApplication.shared.open(twitterUrlWeb, options: [:], completionHandler: nil)
+            
+              UIApplication.shared.open(twitterUrlWeb,
+                                        options: [:],
+                                        completionHandler: nil)
            }
     }
     
     private func openAppleStore() {
-        let urlStr = "https://apps.apple.com/us/developer/thinh-nguyen/id1475297118"
-                   UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+        if let appStoreURL = URL(string: "https://apps.apple.com/us/developer/thinh-nguyen/id1475297118") {
+              UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
+        }
+                 
     }
     
     //MARK:- View Life Cycle
@@ -60,7 +82,9 @@ class SettingTableViewController: UITableViewController  {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
         switch indexPath.row {
             case 0:
                 openTwitter()
@@ -77,11 +101,15 @@ class SettingTableViewController: UITableViewController  {
 
 }
 extension SettingTableViewController : MFMailComposeViewControllerDelegate {
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
        
        if let _ = error {
            controller.dismiss(animated: true)
        }
+        
        switch result {
        case .cancelled:
           controller.dismiss(animated: true)
