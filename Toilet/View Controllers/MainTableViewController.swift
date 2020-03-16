@@ -14,176 +14,163 @@ import CoreLocation
 //TODO:
 // Show blue dot current user
 // Show detail annotation when tap on table view
-// Use UITabBarControllerDelegate
-extension UITableViewController {
-    func showAlert() {
-          let ac = UIAlertController(title: "Added restroom to favorites",
-                                     message: nil,
-                                     preferredStyle: .alert)
-          
-          ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
-              
-          present(ac, animated: true, completion: nil)
-          
-      }
-
-}
-
-
-protocol MainTableViewControllerDelegate: AnyObject {
-    func didGetNewRestroom(restroom: Restroom)
-}
-
+// Slow networking call
 
 class MainTableViewController: UITableViewController , UITabBarControllerDelegate {
     
-       let reuseID = "ToiletCell"
+    
+    //MARK:- Properties
+    
+    lazy private var locationManager : CLLocationManager = {
+           let lm = CLLocationManager()
+           lm.delegate = self
+           lm.desiredAccuracy  = kCLLocationAccuracyBest
+           lm.activityType = .fitness
+           return lm
+       }()
+
     lazy var searchBar : UISearchBar = {
         let search = UISearchBar()
         search.placeholder = "Search for location"
         search.barStyle = .default
+        search.enablesReturnKeyAutomatically = true
+        search.delegate = self
         return search
     }()
     
-    let restroomController = RestroomController.shared
-    var isSearch = false
-    
-   
-    var locationManager = CLLocationManager()
+    public let restroomController = RestroomController.shared
+    public var isSearch = false
     var location : CLLocationCoordinate2D?
+    let reuseID = "ToiletCell"
+   
+   
     
+    //MARK:- IBOutlets
     
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
-                  mapView.isZoomEnabled = true
-                  mapView.isScrollEnabled = true
-                  mapView.showsLargeContentViewer = true
+            mapView.isZoomEnabled = true
+            mapView.isScrollEnabled = true
+            mapView.showsLargeContentViewer = true
+            mapView.showsUserLocation = true
+            mapView.delegate = self
         }
     }
 
-    private func setupNavBar() {
-        
-        navigationItem.titleView = searchBar
-        navigationItem.leftBarButtonItem =   UIBarButtonItem(image: UIImage(systemName: "mappin.and.ellipse"), style: .done, target: self, action: #selector(handleTap))
-    }
-    
-    
     //MARK:- View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkLocationServices()
+        setupNavBar()
+        locationManager.startUpdatingLocation()
         
-        self.tabBarController?.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-          
-            restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 , long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
-                DispatchQueue.main.async {
-                  
-                        self.restroomController.restrooms.forEach { (restroom) in
-                                       
-                                       let annotation = MKPointAnnotation()
-                                       annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
-                                       annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
-                                       annotation.title = restroom.name
-                                       annotation.subtitle = "View directions"
-                                       self.mapView.addAnnotation(annotation)
-                                       self.tableView.reloadData()
-                                   }
-                                   
-                                   self.locationManager.startUpdatingLocation()
-                 
+                 restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 ,
+                                                  long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
+                     DispatchQueue.main.async {
+                         
+                         self.restroomController.restrooms.forEach { (restroom) in
+                             
+                             let annotation = MKPointAnnotation()
+                            
+                             annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
+                             annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
+                             annotation.title = restroom.name
+                             annotation.subtitle = "View directions"
+                            
+                             self.mapView.addAnnotation(annotation)
+                             self.tableView.reloadData()
+                         }
+                         
+                         self.locationManager.startUpdatingLocation()
+                         
+                         
+                     }}
+       
+    }
+   
+    
+     func setupNavBar() {
            
-                }
-            }
+           navigationItem.titleView = searchBar
+           
+           navigationItem.leftBarButtonItem =   UIBarButtonItem(image: UIImage(systemName: "mappin.and.ellipse")
+               , style: .done,
+                 target: self,
+                 action: #selector(handleTap))
+       }
+       
+    
+  private func checkLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            checkLocationAuthorization()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
-        
-        
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        searchBar.delegate = self
-        checkLocationServices()
-        setupNavBar()
-    }
-    func setUpLocationManager() {
-        
-        locationManager.delegate = self
-        locationManager.desiredAccuracy  = kCLLocationAccuracyBest
-        
-    }
-    
-    func checkLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
-            setUpLocationManager()
-            checkLocationAuthorization()
-        }
     }
     
     
-    func checkLocationAuthorization() {
+    private func checkLocationAuthorization() {
+        locationManager.requestWhenInUseAuthorization()
+               locationManager.startUpdatingLocation()
         switch CLLocationManager.authorizationStatus() {
             case .authorizedWhenInUse:
-                // Do map stuff
-
-                   locationManager.startUpdatingLocation()
-             restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 , long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
-                        DispatchQueue.main.async {
-                          
-                                self.restroomController.restrooms.forEach { (restroom) in
-                                               
-                                               let annotation = MKPointAnnotation()
-                                               annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
-                                               annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
-                                               annotation.title = restroom.name
-                                               annotation.subtitle = "View directions"
-                                               self.mapView.addAnnotation(annotation)
-                                               self.tableView.reloadData()
-                                           }
-                                           
-                                           self.locationManager.startUpdatingLocation()
-                         
-                   
-                        }}
-                locationManager.requestWhenInUseAuthorization()
                 
-            break
+         
+                restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 ,
+                                                 long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
+                    DispatchQueue.main.async {
+                        
+                        self.restroomController.restrooms.forEach { (restroom) in
+                            
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
+                            annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
+                            annotation.title = restroom.name
+                            annotation.subtitle = "View directions"
+                            self.mapView.addAnnotation(annotation)
+                            self.tableView.reloadData()
+                        }
+                        
+//                        self.locationManager.startUpdatingLocation()
+                        
+                    }}
+            
+                
+                break
             case .denied:
-                //Show alert instructing them how to turn on permissions
-//                locationManager.requestWhenInUseAuthorization()
-            break
+                 showAlert(title: "Please turn on your GPS in Settings so we can show you the nearest restrooms.")
+                                locationManager.requestWhenInUseAuthorization()
+                break
             case .notDetermined:
-//                locationManager.requestWhenInUseAuthorization()
-            break
+                //                locationManager.requestWhenInUseAuthorization()
+                break
             case .restricted:
                 // Show an alert letting them know what's up
-            break
+                break
             case .authorizedAlways:
                 restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 , long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
-                           DispatchQueue.main.async {
-                             
-                                   self.restroomController.restrooms.forEach { (restroom) in
-                                                  
-                                                  let annotation = MKPointAnnotation()
-                                                  annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
-                                                  annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
-                                                  annotation.title = restroom.name
-                                                  annotation.subtitle = "View directions"
-                                                  self.mapView.addAnnotation(annotation)
-                                                  self.tableView.reloadData()
-                                              }
-                                              
-                                              self.locationManager.startUpdatingLocation()
+                    DispatchQueue.main.async {
+                        
+                        self.restroomController.restrooms.forEach { (restroom) in
                             
-                      
-                           }}
-        
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
+                            annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
+                            annotation.title = restroom.name
+                            annotation.subtitle = "View directions"
+                            self.mapView.addAnnotation(annotation)
+                            self.tableView.reloadData()
+                        }
+                        
+                        self.locationManager.startUpdatingLocation()
+                        
+                    }}
+            
             default:
-            break
+                break
         }
     }
-    
     
     @objc func handleTap() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
@@ -200,7 +187,7 @@ extension MainTableViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
            let identifier = "Restroom"
-           
+                
            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
            
            if annotationView == nil {
@@ -218,15 +205,20 @@ extension MainTableViewController: MKMapViewDelegate {
            }
            return annotationView
        }
+
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // Open Apple map
+        let coordinate = CLLocationCoordinate2DMake(mapView.centerCoordinate.latitude,
+                                                    mapView.centerCoordinate.longitude)
         
-        let coordinate = CLLocationCoordinate2DMake(mapView.centerCoordinate.latitude, mapView.centerCoordinate.longitude)
-        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate,
+                                                       addressDictionary:nil))
+        
         if let annotation = view.annotation, let name = annotation.title {
             mapItem.name = "\(name ?? "...")"
         }
+        
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
 
      }
@@ -239,26 +231,32 @@ extension MainTableViewController: CLLocationManagerDelegate {
       func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             let location = locations.first!
             let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-             mapView.showsUserLocation = true
         
             mapView.setRegion(coordinateRegion, animated: true)
             locationManager.stopUpdatingLocation()
 
         }
-    
+    @objc func request(action: UIAlertAction) {
+        self.locationManager.requestWhenInUseAuthorization()
+    }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
           print("Failed to find user's location: \(error.localizedDescription)")
+        let ac = UIAlertController(title: "Please turn on GPS so we can show you the nearest restroom", message: nil, preferredStyle: .alert)
+                      ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: request(action:)))
+        
+        present(ac, animated: true, completion: {
+            self.locationManager.requestWhenInUseAuthorization()
+        })
       }
       
 }
 extension  MainTableViewController: UISearchBarDelegate {
-      func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-      }
  
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text else { return }
+        
         searchBar.endEditing(true)
+        
         isSearch = true
         
         
@@ -286,13 +284,10 @@ extension  MainTableViewController: UISearchBarDelegate {
         }
         
         DispatchQueue.main.async {
-            
             self.tableView.reloadData()
         }
-        
     }
-    
-    
+
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         tableView.reloadData()
     }

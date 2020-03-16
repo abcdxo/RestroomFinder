@@ -50,8 +50,11 @@ extension MainTableViewController {
           let region = MKCoordinateRegion(center: startLocation,
                                           latitudinalMeters: 10000,
                                           longitudinalMeters: 10000)
-          
-          mapView.setRegion(region, animated: true)
+        mapView.isPitchEnabled = true
+        mapView.isZoomEnabled = true
+        mapView.showsBuildings = true
+        
+        mapView.setRegion(region, animated: true)
 
        
       }
@@ -80,7 +83,7 @@ extension MainTableViewController {
               
               print(self.restroomController.favoriteRestrooms.count)
               
-            self.showAlert()
+            self.showAlert(title: "Added restroom to favorites")
               completion(true)
           }
           action.image = UIImage(systemName: "heart")
@@ -90,4 +93,18 @@ extension MainTableViewController {
                                            alpha: 1)
          return action
       }
+}
+
+extension UITableViewController {
+    func showAlert(title:String) {
+          let ac = UIAlertController(title: title,
+                                     message: nil,
+                                     preferredStyle: .alert)
+          
+          ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil ))
+              
+          present(ac, animated: true, completion: nil)
+          
+      }
+
 }

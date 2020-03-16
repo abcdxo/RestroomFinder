@@ -74,16 +74,16 @@ class RestroomController {
   private var restroomURL : URL? {
            let fm = FileManager.default
            guard let documentDirectory = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-           let eventURL = documentDirectory.appendingPathComponent("Restrooms.plist")
-           return eventURL
+           let restroomURL = documentDirectory.appendingPathComponent("Restrooms.plist")
+           return restroomURL
        }
     
     private func saveToPersistStore() {
            guard let fileURL = restroomURL else { return }
            do {
                 let encoder = PropertyListEncoder()
-               let eventData = try encoder.encode(favoriteRestrooms)
-               try eventData.write(to: fileURL)
+               let restroomData = try encoder.encode(favoriteRestrooms)
+               try restroomData.write(to: fileURL)
            } catch  let err {
                print("Can't save events.Error : \(err)")
            }
