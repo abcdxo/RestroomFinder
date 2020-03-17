@@ -112,35 +112,33 @@ class MainTableViewController: UITableViewController , UITabBarControllerDelegat
     
     private func checkLocationAuthorization() {
         locationManager.requestWhenInUseAuthorization()
-               locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
         switch CLLocationManager.authorizationStatus() {
             case .authorizedWhenInUse:
                 
-         
+                
                 restroomController.fetchRestRoom(lat: locationManager.location?.coordinate.latitude ?? 40.730610 ,
                                                  long: locationManager.location?.coordinate.longitude ??  -73.935242) { (restroom, _) in
-                    DispatchQueue.main.async {
-                        
-                        self.restroomController.restrooms.forEach { (restroom) in
-                            
-                            let annotation = MKPointAnnotation()
-                            annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
-                            annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
-                            annotation.title = restroom.name
-                            annotation.subtitle = "View directions"
-                            self.mapView.addAnnotation(annotation)
-                            self.tableView.reloadData()
-                        }
-                        
-//                        self.locationManager.startUpdatingLocation()
-                        
-                    }}
-            
+                                                    DispatchQueue.main.async {
+                                                        
+                                                        self.restroomController.restrooms.forEach { (restroom) in
+                                                            
+                                                            let annotation = MKPointAnnotation()
+                                                            annotation.coordinate.latitude = CLLocationDegrees(restroom.latitude)
+                                                            annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
+                                                            annotation.title = restroom.name
+                                                            annotation.subtitle = "View directions"
+                                                            self.mapView.addAnnotation(annotation)
+                                                            self.tableView.reloadData()
+                                                        }
+                                                        
+                                                    }}
+                
                 
                 break
             case .denied:
-                 showAlert(title: "Please turn on your GPS in Settings so we can show you the nearest restrooms.")
-                                locationManager.requestWhenInUseAuthorization()
+                showAlert(title: "Please turn on your GPS in Settings so we can show you the nearest restrooms.")
+                locationManager.requestWhenInUseAuthorization()
                 break
             case .notDetermined:
                 //                locationManager.requestWhenInUseAuthorization()
@@ -187,22 +185,26 @@ extension MainTableViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
            let identifier = "Restroom"
-                
-           var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
-           
-           if annotationView == nil {
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
             annotationView?.pinTintColor = .red
             annotationView?.accessibilityActivate()
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-         
-           } else {
-               annotationView?.annotation = annotation
+            
+        } else {
+            annotationView?.annotation = annotation
             annotationView?.animatesDrop = true
             annotationView?.canShowCallout = true
-
-           }
+            
+        }
            return annotationView
        }
 
@@ -261,7 +263,7 @@ extension  MainTableViewController: UISearchBarDelegate {
         
         
         self.restroomController.searchRestroom(searchTerm: searchTerm) { (restroom, _) in
-            DispatchQueue.main.async {
+         
                 
                 self.restroomController.searchedRestrooms.forEach { (restroom) in
                     
@@ -270,8 +272,12 @@ extension  MainTableViewController: UISearchBarDelegate {
                     annotation.coordinate.longitude = CLLocationDegrees(restroom.longitude)
                     annotation.title = restroom.name
                     annotation.subtitle = "View directions"
-                    self.mapView.addAnnotation(annotation)
-                    self.tableView.reloadData()
+                
+                    DispatchQueue.main.async {
+                            self.mapView.addAnnotation(annotation)
+                           self.tableView.reloadData()
+                    }
+                 
                 }
                 
                 
@@ -280,7 +286,7 @@ extension  MainTableViewController: UISearchBarDelegate {
                     self.tableView.reloadData()
                 }
         
-            }
+            
         }
         
         DispatchQueue.main.async {

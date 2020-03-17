@@ -81,6 +81,7 @@ class FavoriteRestroomTableViewController: UITableViewController  {
         
         label.text = "No favorite restrooms to display"
         label.font = UIFont.boldSystemFont(ofSize: 24)
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         tableView.addSubview(label)
       

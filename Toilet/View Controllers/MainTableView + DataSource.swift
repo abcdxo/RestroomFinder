@@ -32,6 +32,7 @@ extension MainTableViewController {
                                         customRestroom.state ,
                                         customRestroom.country].joined(separator: ",")
           
+        
           
           
           return cell
@@ -50,6 +51,7 @@ extension MainTableViewController {
           let region = MKCoordinateRegion(center: startLocation,
                                           latitudinalMeters: 10000,
                                           longitudinalMeters: 10000)
+        
         mapView.isPitchEnabled = true
         mapView.isZoomEnabled = true
         mapView.showsBuildings = true
