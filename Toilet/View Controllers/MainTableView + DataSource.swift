@@ -55,7 +55,8 @@ extension MainTableViewController {
         mapView.isPitchEnabled = true
         mapView.isZoomEnabled = true
         mapView.showsBuildings = true
-        
+
+        self.isCheckingShowAnno = true
         mapView.setRegion(region, animated: true)
 
        

@@ -43,7 +43,7 @@ class MainTableViewController: UITableViewController , UITabBarControllerDelegat
     var location : CLLocationCoordinate2D?
     let reuseID = "ToiletCell"
    
-   
+    var isCheckingShowAnno = true
     
     //MARK:- IBOutlets
     
@@ -205,9 +205,14 @@ extension MainTableViewController: MKMapViewDelegate {
             annotationView?.canShowCallout = true
 
         }
-        DispatchQueue.main.after(0.5) {
-            self.mapView.selectAnnotation(annotation, animated: true)
+        if (self.isCheckingShowAnno){
+            DispatchQueue.main.after(0.5) {
+                self.mapView.selectAnnotation(annotation, animated: true)
+            }
         }
+
+        self.isCheckingShowAnno = false
+        
         return annotationView
        }
 
@@ -269,7 +274,7 @@ extension  MainTableViewController: UISearchBarDelegate {
         
         self.restroomController.searchRestroom(searchTerm: searchTerm) { (restroom, _) in
          
-                
+                var hasDisplay = false
                 self.restroomController.searchedRestrooms.forEach { (restroom) in
                     
                     let annotation = MKPointAnnotation()
@@ -282,6 +287,13 @@ extension  MainTableViewController: UISearchBarDelegate {
                             self.mapView.addAnnotation(annotation)
                            self.tableView.reloadData()
                     }
+                    if (!hasDisplay){
+                        DispatchQueue.main.after(0.5) {
+                            self.mapView.selectAnnotation(annotation, animated: true)
+                        }
+                    }
+                    hasDisplay = true
+
                  
                 }
                 
