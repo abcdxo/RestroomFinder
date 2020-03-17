@@ -18,6 +18,7 @@
 		B6CC4DD8241C7A3700D47718 /* Restroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DD7241C7A3700D47718 /* Restroom.swift */; };
 		B6CC4DDB241C7C4B00D47718 /* RestroomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DDA241C7C4B00D47718 /* RestroomController.swift */; };
 		B6CC4DDD241D0D4300D47718 /* FavoriteRestroomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4DDC241D0D4300D47718 /* FavoriteRestroomTableViewController.swift */; };
+		C059B1AD242073F200F187A4 /* DispatchQueue+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059B1AC242073F200F187A4 /* DispatchQueue+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B6CC4DD7241C7A3700D47718 /* Restroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restroom.swift; sourceTree = "<group>"; };
 		B6CC4DDA241C7C4B00D47718 /* RestroomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestroomController.swift; sourceTree = "<group>"; };
 		B6CC4DDC241D0D4300D47718 /* FavoriteRestroomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestroomTableViewController.swift; sourceTree = "<group>"; };
+		C059B1AC242073F200F187A4 /* DispatchQueue+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		B6CC4DBE241C544700D47718 /* Toilet */ = {
 			isa = PBXGroup;
 			children = (
+				C059B1AB242073D800F187A4 /* Category */,
 				B6CC4DD9241C7C3600D47718 /* Model */,
 				B6CC4DD6241C6AB200D47718 /* Resources */,
 				B6CC4DD5241C6AA400D47718 /* View Controllers */,
@@ -104,6 +107,14 @@
 				B6CC4DDA241C7C4B00D47718 /* RestroomController.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C059B1AB242073D800F187A4 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C059B1AC242073F200F187A4 /* DispatchQueue+Ext.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 				B6CC4DC0241C544700D47718 /* AppDelegate.swift in Sources */,
 				B6CC4DC2241C544700D47718 /* SceneDelegate.swift in Sources */,
 				B6CC4DD4241C690200D47718 /* SettingTableViewController.swift in Sources */,
+				C059B1AD242073F200F187A4 /* DispatchQueue+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

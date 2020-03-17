@@ -203,12 +203,15 @@ extension MainTableViewController: MKMapViewDelegate {
             annotationView?.annotation = annotation
             annotationView?.animatesDrop = true
             annotationView?.canShowCallout = true
-            
+
         }
-           return annotationView
+        DispatchQueue.main.after(0.5) {
+            self.mapView.selectAnnotation(annotation, animated: true)
+        }
+        return annotationView
        }
 
-    
+
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // Open Apple map
         let coordinate = CLLocationCoordinate2DMake(mapView.centerCoordinate.latitude,
@@ -224,7 +227,9 @@ extension MainTableViewController: MKMapViewDelegate {
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
 
      }
-    
+//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        mapView.deselectAnnotation(view.annotation, animated: true)
+//    }
 }
 
 
