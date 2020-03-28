@@ -1,5 +1,5 @@
 # RestroomFinder
-
+Find restrooms near you.
 
 # API used:
 - Core Location
