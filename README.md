@@ -1,5 +1,5 @@
 # RestroomFinder
-Find restrooms near you.
+An app that help people find nearest restrooms to their location.
 
 # API used:
 - Core Location
