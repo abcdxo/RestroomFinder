@@ -8,25 +8,24 @@
 
 import Foundation
 
-
 struct Restroom : Codable, Equatable {
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case street
-        case city
-        case state
-        case country
-        case longitude
-        case latitude
-    }
-    
-    let name: String
-    let street: String
-    let city: String
-    let state: String
-    let country: String
-    let longitude: Float?
-    let latitude: Float?
-    
+  
+  enum CodingKeys: String, CodingKey {
+    case name
+    case street
+    case city
+    case state
+    case country
+    case longitude
+    case latitude
+  }
+  
+  let name: String
+  let street: String
+  let city: String
+  let state: String
+  let country: String
+  let longitude: Float?
+  let latitude: Float?
+  
 }

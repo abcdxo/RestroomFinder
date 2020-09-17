@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B611A29224271072000AC3AF /* ToiletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611A29124271072000AC3AF /* ToiletTests.swift */; };
+		B611A2A024271079000AC3AF /* ToiletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611A29F24271079000AC3AF /* ToiletUITests.swift */; };
+		B650C3C6248D3B2400DED736 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B650C3C5248D3B2400DED736 /* SVProgressHUD */; };
 		B682B83C2423384500A7C0F5 /* Convenience + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682B83B2423384500A7C0F5 /* Convenience + Ext.swift */; };
 		B682B85A24246B8200A7C0F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B682B85924246B8200A7C0F5 /* Assets.xcassets */; };
 		B69F9058241EF47C004DC82E /* MainTableView + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9057241EF47C004DC82E /* MainTableView + DataSource.swift */; };
@@ -22,7 +25,30 @@
 		C059B1AD242073F200F187A4 /* DispatchQueue+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059B1AC242073F200F187A4 /* DispatchQueue+Ext.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B611A29424271072000AC3AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6CC4DB4241C544700D47718 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6CC4DBB241C544700D47718;
+			remoteInfo = Toilet;
+		};
+		B611A2A224271079000AC3AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6CC4DB4241C544700D47718 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6CC4DBB241C544700D47718;
+			remoteInfo = Toilet;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		B611A28F24271072000AC3AF /* ToiletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToiletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B611A29124271072000AC3AF /* ToiletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletTests.swift; sourceTree = "<group>"; };
+		B611A29324271072000AC3AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B611A29D24271079000AC3AF /* ToiletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToiletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B611A29F24271079000AC3AF /* ToiletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletUITests.swift; sourceTree = "<group>"; };
+		B611A2A124271079000AC3AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B682B83B2423384500A7C0F5 /* Convenience + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Convenience + Ext.swift"; sourceTree = "<group>"; };
 		B682B85924246B8200A7C0F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B69F9057241EF47C004DC82E /* MainTableView + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTableView + DataSource.swift"; sourceTree = "<group>"; };
@@ -41,20 +67,64 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B6CC4DB9241C544700D47718 /* Frameworks */ = {
+		B611A28C24271072000AC3AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B611A29A24271079000AC3AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6CC4DB9241C544700D47718 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B650C3C6248D3B2400DED736 /* SVProgressHUD in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B611A29024271072000AC3AF /* ToiletTests */ = {
+			isa = PBXGroup;
+			children = (
+				B611A29124271072000AC3AF /* ToiletTests.swift */,
+				B611A29324271072000AC3AF /* Info.plist */,
+			);
+			path = ToiletTests;
+			sourceTree = "<group>";
+		};
+		B611A29E24271079000AC3AF /* ToiletUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B611A29F24271079000AC3AF /* ToiletUITests.swift */,
+				B611A2A124271079000AC3AF /* Info.plist */,
+			);
+			path = ToiletUITests;
+			sourceTree = "<group>";
+		};
+		B611A2CB24280A62000AC3AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B69F9057241EF47C004DC82E /* MainTableView + DataSource.swift */,
+				B682B83B2423384500A7C0F5 /* Convenience + Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B6CC4DB3241C544700D47718 = {
 			isa = PBXGroup;
 			children = (
 				B6CC4DBE241C544700D47718 /* Toilet */,
+				B611A29024271072000AC3AF /* ToiletTests */,
+				B611A29E24271079000AC3AF /* ToiletUITests */,
 				B6CC4DBD241C544700D47718 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				B6CC4DBC241C544700D47718 /* Toilet.app */,
+				B611A28F24271072000AC3AF /* ToiletTests.xctest */,
+				B611A29D24271079000AC3AF /* ToiletUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,8 +145,9 @@
 				C059B1AB242073D800F187A4 /* Category */,
 				B6CC4DD9241C7C3600D47718 /* Model */,
 				B6CC4DD6241C6AB200D47718 /* Resources */,
+				B611A2CB24280A62000AC3AF /* Extensions */,
 				B6CC4DD5241C6AA400D47718 /* View Controllers */,
-				B6CC4DC5241C544700D47718 /* Main.storyboard */,
+				B6F7A6852512F986005F608B /* Storyboard */,
 				B6CC4DCD241C544900D47718 /* Info.plist */,
 			);
 			path = Toilet;
@@ -86,8 +159,6 @@
 				B6CC4DC3241C544700D47718 /* MainTableViewController.swift */,
 				B6CC4DD3241C690200D47718 /* SettingTableViewController.swift */,
 				B6CC4DDC241D0D4300D47718 /* FavoriteRestroomTableViewController.swift */,
-				B69F9057241EF47C004DC82E /* MainTableView + DataSource.swift */,
-				B682B83B2423384500A7C0F5 /* Convenience + Ext.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -97,7 +168,6 @@
 			children = (
 				B6CC4DBF241C544700D47718 /* AppDelegate.swift */,
 				B6CC4DC1241C544700D47718 /* SceneDelegate.swift */,
-				B6CC4DCA241C544900D47718 /* LaunchScreen.storyboard */,
 				B682B85924246B8200A7C0F5 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -112,6 +182,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B6F7A6852512F986005F608B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC4DC5241C544700D47718 /* Main.storyboard */,
+				B6CC4DCA241C544900D47718 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		C059B1AB242073D800F187A4 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +202,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B611A28E24271072000AC3AF /* ToiletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B611A29824271072000AC3AF /* Build configuration list for PBXNativeTarget "ToiletTests" */;
+			buildPhases = (
+				B611A28B24271072000AC3AF /* Sources */,
+				B611A28C24271072000AC3AF /* Frameworks */,
+				B611A28D24271072000AC3AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B611A29524271072000AC3AF /* PBXTargetDependency */,
+			);
+			name = ToiletTests;
+			productName = ToiletTests;
+			productReference = B611A28F24271072000AC3AF /* ToiletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B611A29C24271079000AC3AF /* ToiletUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B611A2A424271079000AC3AF /* Build configuration list for PBXNativeTarget "ToiletUITests" */;
+			buildPhases = (
+				B611A29924271079000AC3AF /* Sources */,
+				B611A29A24271079000AC3AF /* Frameworks */,
+				B611A29B24271079000AC3AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B611A2A324271079000AC3AF /* PBXTargetDependency */,
+			);
+			name = ToiletUITests;
+			productName = ToiletUITests;
+			productReference = B611A29D24271079000AC3AF /* ToiletUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B6CC4DBB241C544700D47718 /* Toilet */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6CC4DD0241C544900D47718 /* Build configuration list for PBXNativeTarget "Toilet" */;
@@ -136,6 +251,9 @@
 			dependencies = (
 			);
 			name = Toilet;
+			packageProductDependencies = (
+				B650C3C5248D3B2400DED736 /* SVProgressHUD */,
+			);
 			productName = Toilet;
 			productReference = B6CC4DBC241C544700D47718 /* Toilet.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +268,14 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Nick Nguyen";
 				TargetAttributes = {
+					B611A28E24271072000AC3AF = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = B6CC4DBB241C544700D47718;
+					};
+					B611A29C24271079000AC3AF = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = B6CC4DBB241C544700D47718;
+					};
 					B6CC4DBB241C544700D47718 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -164,16 +290,35 @@
 				Base,
 			);
 			mainGroup = B6CC4DB3241C544700D47718;
+			packageReferences = (
+				B650C3C4248D3B2400DED736 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
+			);
 			productRefGroup = B6CC4DBD241C544700D47718 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				B6CC4DBB241C544700D47718 /* Toilet */,
+				B611A28E24271072000AC3AF /* ToiletTests */,
+				B611A29C24271079000AC3AF /* ToiletUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B611A28D24271072000AC3AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B611A29B24271079000AC3AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6CC4DBA241C544700D47718 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,6 +332,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B611A28B24271072000AC3AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B611A29224271072000AC3AF /* ToiletTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B611A29924271079000AC3AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B611A2A024271079000AC3AF /* ToiletUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6CC4DB8241C544700D47718 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,6 +366,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B611A29524271072000AC3AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6CC4DBB241C544700D47718 /* Toilet */;
+			targetProxy = B611A29424271072000AC3AF /* PBXContainerItemProxy */;
+		};
+		B611A2A324271079000AC3AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6CC4DBB241C544700D47718 /* Toilet */;
+			targetProxy = B611A2A224271079000AC3AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B6CC4DC5241C544700D47718 /* Main.storyboard */ = {
@@ -226,6 +400,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B611A29624271072000AC3AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = ToiletTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.ToiletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toilet.app/Toilet";
+			};
+			name = Debug;
+		};
+		B611A29724271072000AC3AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = ToiletTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.ToiletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toilet.app/Toilet";
+			};
+			name = Release;
+		};
+		B611A2A524271079000AC3AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = ToiletUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.ToiletUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Toilet;
+			};
+			name = Debug;
+		};
+		B611A2A624271079000AC3AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = ToiletUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.ToiletUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Toilet;
+			};
+			name = Release;
+		};
 		B6CC4DCE241C544900D47718 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -352,6 +604,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nick.Toilet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -371,6 +624,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nick.Toilet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -381,6 +635,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B611A29824271072000AC3AF /* Build configuration list for PBXNativeTarget "ToiletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B611A29624271072000AC3AF /* Debug */,
+				B611A29724271072000AC3AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B611A2A424271079000AC3AF /* Build configuration list for PBXNativeTarget "ToiletUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B611A2A524271079000AC3AF /* Debug */,
+				B611A2A624271079000AC3AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B6CC4DB7241C544700D47718 /* Build configuration list for PBXProject "Toilet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -400,6 +672,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B650C3C4248D3B2400DED736 /* XCRemoteSwiftPackageReference "SVProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/epitonium/SVProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B650C3C5248D3B2400DED736 /* SVProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B650C3C4248D3B2400DED736 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
+			productName = SVProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6CC4DB4241C544700D47718 /* Project object */;
 }
