@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SVProgressHUD",
+        "repositoryURL": "https://github.com/epitonium/SVProgressHUD.git",
+        "state": {
+          "branch": null,
+          "revision": "3580cb55f351d83f861f52362aa38305f663f88d",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
