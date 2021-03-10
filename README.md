@@ -10,7 +10,7 @@ An app that helps people find nearest restrooms based on their location.
 - UIKit
 - FileManager 
 
-# Visualization:
+# Screenshots:
 
 <img src="https://user-images.githubusercontent.com/50033125/110614094-fbb8ca80-815f-11eb-9124-ee42282ded51.png" width="250"> <img src="https://user-images.githubusercontent.com/50033125/110614248-24d95b00-8160-11eb-8cac-3e3331578c43.png" width="250"/> <img src="https://user-images.githubusercontent.com/50033125/110614307-31f64a00-8160-11eb-886d-52d9b226aee6.png" width="250"/>
 
