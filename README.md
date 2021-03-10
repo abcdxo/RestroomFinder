@@ -8,14 +8,14 @@ An app that helps people find nearest restrooms based on their location.
 - Map Kit
 - Codable
 - UIKit 
+- 
+# Visualization:
+
+![](restroomfinder.gif)
 
 # App Store Download:
 
 https://apps.apple.com/us/app/restme/id1503617773
-
-# Visualization:
-
-![](restroomfinder.gif)
 
 # Requirement: 
 - Xcode 11 
