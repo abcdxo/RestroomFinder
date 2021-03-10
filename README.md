@@ -1,29 +1,17 @@
 # RestroomFinder
-An app that help people find nearest restrooms to their location.
+
+An app that helps people find nearest restrooms based on their location.
 
 # API used:
+
 - Core Location
 - Map Kit
 - Codable
 - UIKit 
 
-
-
 # App Store Download:
 
 https://apps.apple.com/us/app/restme/id1503617773
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Visualization:
 
