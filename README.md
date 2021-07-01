@@ -2,7 +2,7 @@
 
 An app that helps people find nearest restrooms based on their location.
 
-# API used:
+# Technologies used:
 
 - CoreLocation
 - MapKit
